@@ -30,6 +30,11 @@ label
 {
 	display: inline;
 }
+input[type="text"],select
+{
+	background: #fff;
+	color: #000;
+}
 
 input, textarea, select, fieldset
 {
@@ -54,21 +59,32 @@ input, textarea, select, fieldset
 .away
 {
 	background: #CB000A;
+	
 }
 .score
 {
-	font-size: 1.1em;
+	font-size: 3em;
 }
+
+
 input.score[type="button"]
 {
-	padding: 20px;
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+	border: 2px solid #ccc;
+
+    font-size: 3em;
+    height: 80px;
+    width: 25%;
+	background: #ccc none repeat scroll 0 0;
 }
 
 input.score[type="text"]
 {
 	color: #000;
 	background: #fff;
-	height: 60px;
+	height: 80px;
 	text-align:center;
 	width: 100px;
 }

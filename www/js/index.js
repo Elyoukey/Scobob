@@ -47,9 +47,10 @@ jQuery(function() {
 
 function pushDatas()
 {
+	
     jQuery.ajax({
       type: "POST",
-      url: "save.php",
+      url: "http://www.scobob.com/save.php",
       data: jQuery( "#main_board" ).serialize(),
       success: function(){ console.log('data sent'); }
     });
