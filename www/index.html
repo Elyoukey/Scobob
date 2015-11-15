@@ -34,6 +34,14 @@
     </head>
     <body>
     	<form id="main_board">
+    	<input type="hidden" name="id" id="board_id" value="56485cfbd8bb7" />
+	
+			<div class="row">
+				<div class="twelve columns center">
+				<div id="ajax-response"> here some text</div>
+				<input class="tournament" name="tournament" id="tournament" type="text" value="" />
+				</div>
+			</div>
         	<div class="row" id="infos-board">
         		<div class="five columns home">
 					<input class="coach" name="coach_home" id="coach_home" type="text" value="" placeholder="Coach name" />
@@ -97,11 +105,13 @@
 					</select>
 				</div>
         	</div>
+        	<!--
         	<div class="row"  id="timer-board">
         		<div class="five columns home"> <span id="timer-home" class="timer">4:00</span> </div>
         		<div class="two columns center">Timer</div>
         		<div class="five columns away"> <span id="timer-away" class="timer">4:00</span></div>
         	</div>
+        	-->
         	<div class="row"  id="weather-board">
         		<div class="twelve columns center">
         			<input class="weather tick" name="weather" type="radio" value="Blizzard" id="weather_blizzard"/>

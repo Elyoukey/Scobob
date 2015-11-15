@@ -52,7 +52,15 @@ function pushDatas()
       type: "POST",
       url: "http://www.scobob.com/save.php",
       data: jQuery( "#main_board" ).serialize(),
-      success: function(){ console.log('data sent'); }
+      crossDomain: true,
+      success: function(data){ 
+      	  console.log('data sent');
+      	  jQuery('#ajax-response').html('success');
+      },
+      failure: function(data){ 
+      	  console.log('data not sent');
+      	  jQuery('#ajax-response').html('failed');
+      }
     });
     
     //save form data in cookie
@@ -67,6 +75,6 @@ function autoPushDatas()
 	sleepTimer++;
 	if(sleepTimer < 360 )//do not relaunch if no activity snce more than 1 hour
 	{
-		setTimeout(function(){autoPushDatas()},10000);
+		//setTimeout(function(){autoPushDatas()},10000);
 	}
 }
