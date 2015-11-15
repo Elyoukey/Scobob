@@ -51,6 +51,7 @@ input, textarea, select, fieldset
 .home, .away, .center
 {
 	padding: 5px;
+	height: 100%;
 }
 .home
 {
@@ -59,13 +60,34 @@ input, textarea, select, fieldset
 .away
 {
 	background: #CB000A;
-	
 }
+
+
+
+input.tick{
+    display: none;
+}
+label.tick{
+    background: #ccc none repeat scroll 0 0;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 100%;
+    margin: 0;
+    padding: 10px;
+}
+input.tick[type="radio"]:checked + label, input.tick[type="checkbox"]:checked + label {
+    background-color: #222;
+    border: 2px solid white;
+    color: white;
+}
+/*  SCORE buttons */
 .score
 {
 	font-size: 3em;
 }
-
 
 input.score[type="button"]
 {
@@ -89,23 +111,41 @@ input.score[type="text"]
 	width: 100px;
 }
 
-input.tick{
-    display: none;
+/* Half and setup button */
+label.setup
+{
 }
-label.tick{
-    background: #ccc none repeat scroll 0 0;
-    border: 2px solid #ccc;
-    border-radius: 20px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 100%;
-    margin: 0;
-    padding: 10px;
+.half
+{
+	margin: 0;
 }
-input.tick[type="radio"]:checked + label, input.tick[type="checkbox"]:checked + label {
-    background-color: #222;
-    border: 2px solid white;
-    color: white;
+
+.first.half
+{
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
+.secund.half
+{
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.half-wrapper
+{
+	white-space: nowrap;
+}
+@media (min-width: 550px) and (max-width: 1100px) {
+	.half-wrapper
+	{
+		white-space: normal;
+	}
+	label.tick.half, label.tick.setup 
+	{
+		white-space: nowrap;
+		border-radius: 10px;
+		margin: 2px;
+	}
+}
+
 
