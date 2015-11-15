@@ -83,6 +83,34 @@ input.tick[type="radio"]:checked + label, input.tick[type="checkbox"]:checked + 
     border: 2px solid white;
     color: white;
 }
+/* Weather buttons */
+#weather-board
+{
+	font-size: 1.3em;
+	
+}
+#weather-board label.tick
+{
+	margin: 0 10px;
+}
+#weather-board label.tick[for="weather_blizzard"]
+{
+	color: #04DEE5;
+}
+#weather-board label.tick[for="weather_pouringrain"]
+{
+	color: brown;
+}
+#weather-board label.tick[for="weather_verysunny"]
+{
+	color: orange;
+}
+#weather-board label.tick[for="weather_swelteringheat"]
+{
+	color: yellow;
+}
+
+
 /*  SCORE buttons */
 .score
 {
