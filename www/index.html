@@ -26,252 +26,244 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>Scobob</title>
     </head>
     <body>
-        <div class="app">
-           <table class="board" width="100%" border="1">
-        	<thead>
-        		<td width="40%"></td>
-        		<td width="20%"></td>
-        		<td width="40%"></td>
-        	</thead>
-        	<tr id="menu">
-        		<td colspan="3"></td>
-        	</tr>
-        	<tr id="timer-board">
-        		<td class="home"> <span id="timer-home" class="timer">4:00</span> </td>
-        		<td class="center"></td>
-        		<td class="away"> <span id="timer-away" class="timer">4:00</span></td>
-        	</tr>
-        	<tr>
-        		<td>
-        			<div class="score row">
-						<input class="scoretick more" type="button" value="+" data-target="score_home" data-direction="more"/>
-						<input class="score" name="score_home" id="score_home" type="text" value="" />
-						<input class="scoretick less" type="button" value="-" data-target="score_home" data-direction="less"/>
-					</div>
-        		</td>
-        		<td></td>
-        		<td>
-        			<div class="score row">
-						<input class="scoretick more" type="button" value="+" data-target="score_away" data-direction="more"/>
-						<input class="score" name="score_away" id="score_away" type="text" value="" />
-						<input class="scoretick less" type="button" value="-" data-target="score_away" data-direction="less"/>
-					</div>
-        		
-        		</td>
-        	</tr>
-        	<tr id="infos-board">
-        		<td class="home">
-        			<div class="row infos">
-						
-						<input class="coach" name="coach_home" id="coach_home" type="text" value="" />
-						<input class="teamname" name="team_home" id="teamname_home" type="text" value="" />
-						<select class="roster" name="roster_home" id="roster_home" type="text" >
-							<option value="">Choose roster</option>
-							<option value="Amazon">Amazon</option>
-							<option value="Chaos">Chaos</option>
-							<option value="Chaos dwarf">Chaos dwarf</option>
-							<option value="Chaos pact">Chaos pact</option>
-							<option value="Dark elf">Dark elf</option>
-							<option value="Dwarf">Dwarf</option>
-							<option value="Elf">Elf</option>
-							<option value="Goblin">Goblin</option>
-							<option value="Halfling">Halfling</option>
-							<option value="High elf">High elf</option>
-							<option value="Human">Human</option>
-							<option value="Khemri">Khemri</option>
-							<option value="Lizardman">Lizardman</option>
-							<option value="Necromantic">Necromantic</option>
-							<option value="Norse">Norse</option>
-							<option value="Nurgle">Nurgle</option>
-							<option value="Ogre">Ogre</option>
-							<option value="Orc">Orc</option>
-							<option value="Skaven">Skaven</option>
-							<option value="Slann">Slann</option>
-							<option value="Undead">Undead</option>
-							<option value="Underworld">Underworld</option>
-							<option value="Vampire">Vampire</option>
-							<option value="Wood elf">Wood elf</option>
-						</select>
-					</div>
-        		</td>
-        		<td class="center weather"></td>
-        		<td class="away">
-					<div class="row infos">
-						
-						<input class="coach" name="coach_away" id="coach_away" type="text" value="" />
-						<input class="teamname" name="team_away" id="teamname_away" type="text" value="" />
-						<select class="roster" name="roster_away" id="roster_away" type="text" >
-							<option value="">Choose roster</option>
-							<option value="Amazon">Amazon</option>
-							<option value="Chaos">Chaos</option>
-							<option value="Chaos dwarf">Chaos dwarf</option>
-							<option value="Chaos pact">Chaos pact</option>
-							<option value="Dark elf">Dark elf</option>
-							<option value="Dwarf">Dwarf</option>
-							<option value="Elf">Elf</option>
-							<option value="Goblin">Goblin</option>
-							<option value="Halfling">Halfling</option>
-							<option value="High elf">High elf</option>
-							<option value="Human">Human</option>
-							<option value="Khemri">Khemri</option>
-							<option value="Lizardman">Lizardman</option>
-							<option value="Necromantic">Necromantic</option>
-							<option value="Norse">Norse</option>
-							<option value="Nurgle">Nurgle</option>
-							<option value="Ogre">Ogre</option>
-							<option value="Orc">Orc</option>
-							<option value="Skaven">Skaven</option>
-							<option value="Slann">Slann</option>
-							<option value="Undead">Undead</option>
-							<option value="Underworld">Underworld</option>
-							<option value="Vampire">Vampire</option>
-							<option value="Wood elf">Wood elf</option>	
-						</select>
-					</div>
-        		</td>
-        	</tr>
-        	<tr id="score-board">
-        		<td class="home">
-					<input class="turntick" name="turn" type="radio" value="1" id="turn_home_1"/>
-					<label class="turntick" for="turn_home_1">1</label>
-					<input class="turntick" name="turn" type="radio" value="2" id="turn_home_2"/>
-					<label class="turntick" for="turn_home_2">2</label>
-					<input class="turntick" name="turn" type="radio" value="3" id="turn_home_3"/>
-					<label class="turntick" for="turn_home_3">3</label>
-					<input class="turntick" name="turn" type="radio" value="4" id="turn_home_4"/>
-					<label class="turntick" for="turn_home_4">4</label>
-					<input class="turntick" name="turn" type="radio" value="5" id="turn_home_5"/>
-					<label class="turntick" for="turn_home_5">5</label>
-					<input class="turntick" name="turn" type="radio" value="6" id="turn_home_6"/>
-					<label class="turntick" for="turn_home_6">6</label>
-					<input class="turntick" name="turn" type="radio" value="7" id="turn_home_7"/>
-					<label class="turntick" for="turn_home_7">7</label>
-					<input class="turntick" name="turn" type="radio" value="8" id="turn_home_8"/>
-					<label class="turntick" for="turn_home_8">8</label>
-        		</td>
-        		<td class="center">
-        			<div class="half_container">
-						<input class="halftick" name="half" type="radio" value="1" id="half_1"/>
-						<label class="halftick" for="half_1">1st half</label>
-						<input class="halftick" name="half" type="radio" value="2" id="half_2"/>
-						<label class="halftick" for="half_2">2nd half</label>
-					</div>
-        		</td>
-        		<td class="away">
-        			<input class="turntick" name="turn" type="radio" value="1" id="turn_away_1"/>
-					<label class="turntick" for="turn_away_1">1</label>
-					<input class="turntick" name="turn" type="radio" value="2" id="turn_away_2"/>
-					<label class="turntick" for="turn_away_2">2</label>
-					<input class="turntick" name="turn" type="radio" value="3" id="turn_away_3"/>
-					<label class="turntick" for="turn_away_3">3</label>
-					<input class="turntick" name="turn" type="radio" value="4" id="turn_away_4"/>
-					<label class="turntick" for="turn_away_4">4</label>
-					<input class="turntick" name="turn" type="radio" value="5" id="turn_away_5"/>
-					<label class="turntick" for="turn_away_5">5</label>
-					<input class="turntick" name="turn" type="radio" value="6" id="turn_away_6"/>
-					<label class="turntick" for="turn_away_6">6</label>
-					<input class="turntick" name="turn" type="radio" value="7" id="turn_away_7"/>
-					<label class="turntick" for="turn_away_7">7</label>
-					<input class="turntick" name="turn" type="radio" value="8" id="turn_away_8"/>
-					<label class="turntick" for="turn_away_8">8</label>
-        		</td>
-        	</tr>
-        	<tr id="turns-board">
-        		<td class="home"></td>
-        		<td class="center half"></td>
-        		<td class="away"></td>
-        	</tr>
-        	<tr id="reroll-board">
-        		<td class="home">
-        			<div class="reroll row">
-						<input class="rerolltick" name="reroll_home" type="radio" value="0" id="reroll_home_0"/>
-						<label class="rerolltick" for="reroll_home_0">0</label>
-						<input class="rerolltick" name="reroll_home" type="radio" value="1" id="reroll_home_1"/>
-						<label class="rerolltick" for="reroll_home_1">1</label>
-						<input class="rerolltick" name="reroll_home" type="radio" value="2" id="reroll_home_2"/>
-						<label class="rerolltick" for="reroll_home_2">2</label>
-						<input class="rerolltick" name="reroll_home" type="radio" value="3" id="reroll_home_3"/>
-						<label class="rerolltick" for="reroll_home_3">3</label>
-						<input class="rerolltick" name="reroll_home" type="radio" value="4" id="reroll_home_4"/>
-						<label class="rerolltick" for="reroll_home_4">4</label>
-						<input class="rerolltick" name="reroll_home" type="radio" value="5" id="reroll_home_5"/>
-						<label class="rerolltick" for="reroll_home_5">5</label>
-						<input class="rerolltick" name="reroll_home" type="radio" value="6" id="reroll_home_6"/>
-						<label class="rerolltick" for="reroll_home_6">6</label>
-					</div>
-        		</td>
-        		<td class="center"></td>
-        		<td class="away">
-					<div class="reroll row">
-						<input class="rerolltick" name="reroll_away" type="radio" value="0" id="reroll_away_0"/>
-						<label class="rerolltick" for="reroll_away_0">0</label>
-						<input class="rerolltick" name="reroll_away" type="radio" value="1" id="reroll_away_1"/>
-						<label class="rerolltick" for="reroll_away_1">1</label>
-						<input class="rerolltick" name="reroll_away" type="radio" value="2" id="reroll_away_2"/>
-						<label class="rerolltick" for="reroll_away_2">2</label>
-						<input class="rerolltick" name="reroll_away" type="radio" value="3" id="reroll_away_3"/>
-						<label class="rerolltick" for="reroll_away_3">3</label>
-						<input class="rerolltick" name="reroll_away" type="radio" value="4" id="reroll_away_4"/>
-						<label class="rerolltick" for="reroll_away_4">4</label>
-						<input class="rerolltick" name="reroll_away" type="radio" value="5" id="reroll_away_5"/>
-						<label class="rerolltick" for="reroll_away_5">5</label>
-						<input class="rerolltick" name="reroll_away" type="radio" value="6" id="reroll_away_6"/>
-						<label class="rerolltick" for="reroll_away_6">6</label>
-					</div>
-				</td>
-        	</tr>
-        	<tr id="casualties-board">
-        		<td class="home">
-        			<div class="casualties row">
-						<input class="casualtiestick" name="casualties_home" type="radio" value="0" id="casualties_home_0"/>
-						<label class="casualtiestick" for="casualties_home_0">0</label>
-						<input class="casualtiestick" name="casualties_home" type="radio" value="1" id="casualties_home_1"/>
-						<label class="casualtiestick" for="casualties_home_1">1</label>
-						<input class="casualtiestick" name="casualties_home" type="radio" value="2" id="casualties_home_2"/>
-						<label class="casualtiestick" for="casualties_home_2">2</label>
-						<input class="casualtiestick" name="casualties_home" type="radio" value="3" id="casualties_home_3"/>
-						<label class="casualtiestick" for="casualties_home_3">3</label>
-						<input class="casualtiestick" name="casualties_home" type="radio" value="4" id="casualties_home_4"/>
-						<label class="casualtiestick" for="casualties_home_4">4</label>
-						<input class="casualtiestick" name="casualties_home" type="radio" value="5" id="casualties_home_5"/>
-						<label class="casualtiestick" for="casualties_home_5">5</label>
-						<input class="casualtiestick" name="casualties_home" type="radio" value="6" id="casualties_home_6"/>
-						<label class="casualtiestick" for="casualties_home_6">6</label>
-					</div>
-        		</td>
-        		<td class="center"></td>
-        		<td class="away">
-					<div class="casualties row">
-						<input class="casualtiestick" name="casualties_away" type="radio" value="0" id="casualties_away_0"/>
-						<label class="casualtiestick" for="casualties_away_0">0</label>
-						<input class="casualtiestick" name="casualties_away" type="radio" value="1" id="casualties_away_1"/>
-						<label class="casualtiestick" for="casualties_away_1">1</label>
-						<input class="casualtiestick" name="casualties_away" type="radio" value="2" id="casualties_away_2"/>
-						<label class="casualtiestick" for="casualties_away_2">2</label>
-						<input class="casualtiestick" name="casualties_away" type="radio" value="3" id="casualties_away_3"/>
-						<label class="casualtiestick" for="casualties_away_3">3</label>
-						<input class="casualtiestick" name="casualties_away" type="radio" value="4" id="casualties_away_4"/>
-						<label class="casualtiestick" for="casualties_away_4">4</label>
-						<input class="casualtiestick" name="casualties_away" type="radio" value="5" id="casualties_away_5"/>
-						<label class="casualtiestick" for="casualties_away_5">5</label>
-						<input class="casualtiestick" name="casualties_away" type="radio" value="6" id="casualties_away_6"/>
-						<label class="casualtiestick" for="casualties_away_6">6</label>
-					</div>
-				</td>
-        	</tr>
-        	
-        
-        
-        </table>
-        </div>
+    	<form id="main_board">
+        	<div class="row" id="infos-board">
+        		<div class="five columns home">
+					<input class="coach" name="coach_home" id="coach_home" type="text" value="" />
+					<input class="teamname" name="team_home" id="teamname_home" type="text" value="" />
+					<select class="roster" name="roster_home" id="roster_home" type="text" >
+						<option value="">Choose roster</option>
+						<option value="Amazon">Amazon</option>
+						<option value="Chaos">Chaos</option>
+						<option value="Chaos dwarf">Chaos dwarf</option>
+						<option value="Chaos pact">Chaos pact</option>
+						<option value="Dark elf">Dark elf</option>
+						<option value="Dwarf">Dwarf</option>
+						<option value="Elf">Elf</option>
+						<option value="Goblin">Goblin</option>
+						<option value="Halfling">Halfling</option>
+						<option value="High elf">High elf</option>
+						<option value="Human">Human</option>
+						<option value="Khemri">Khemri</option>
+						<option value="Lizardman">Lizardman</option>
+						<option value="Necromantic">Necromantic</option>
+						<option value="Norse">Norse</option>
+						<option value="Nurgle">Nurgle</option>
+						<option value="Ogre">Ogre</option>
+						<option value="Orc">Orc</option>
+						<option value="Skaven">Skaven</option>
+						<option value="Slann">Slann</option>
+						<option value="Undead">Undead</option>
+						<option value="Underworld">Underworld</option>
+						<option value="Vampire">Vampire</option>
+						<option value="Wood elf">Wood elf</option>
+					</select>
+        		</div>
+        		<div class="two columns center">Infos</div>
+				<div class="five columns away">
+					<input class="coach" name="coach_away" id="coach_away" type="text" value="" />
+					<input class="teamname" name="team_away" id="teamname_away" type="text" value="" />
+					<select class="roster" name="roster_away" id="roster_away" type="text" >
+						<option value="">Choose roster</option>
+						<option value="Amazon">Amazon</option>
+						<option value="Chaos">Chaos</option>
+						<option value="Chaos dwarf">Chaos dwarf</option>
+						<option value="Chaos pact">Chaos pact</option>
+						<option value="Dark elf">Dark elf</option>
+						<option value="Dwarf">Dwarf</option>
+						<option value="Elf">Elf</option>
+						<option value="Goblin">Goblin</option>
+						<option value="Halfling">Halfling</option>
+						<option value="High elf">High elf</option>
+						<option value="Human">Human</option>
+						<option value="Khemri">Khemri</option>
+						<option value="Lizardman">Lizardman</option>
+						<option value="Necromantic">Necromantic</option>
+						<option value="Norse">Norse</option>
+						<option value="Nurgle">Nurgle</option>
+						<option value="Ogre">Ogre</option>
+						<option value="Orc">Orc</option>
+						<option value="Skaven">Skaven</option>
+						<option value="Slann">Slann</option>
+						<option value="Undead">Undead</option>
+						<option value="Underworld">Underworld</option>
+						<option value="Vampire">Vampire</option>
+						<option value="Wood elf">Wood elf</option>	
+					</select>
+				</div>
+        	</div>
+        	<div class="row"  id="timer-board">
+        		<div class="five columns home"> <span id="timer-home" class="timer">4:00</span> </div>
+        		<div class="two columns center">Timer</div>
+        		<div class="five columns away"> <span id="timer-away" class="timer">4:00</span></div>
+        	</div>
+        	<div class="row"  id="weather-board">
+        		<div class="twelve columns center">
+        			<input class="weather tick" name="weather" type="radio" value="Blizzard" id="weather_blizzard"/>
+					<label class="weather tick" for="weather_blizzard">&#10052;</label>
+					<input class="weather tick" name="weather" type="radio" value="Pouring rain" id="weather_pouringrain"/>
+					<label class="weather tick" for="weather_pouringrain">&#9730;</label>
+					<input class="weather tick" name="weather" type="radio" value="nice" id="weather_nice" checked="checked"/>
+					<label class="weather tick" for="weather_nice">&#9729;</label>
+					<input class="weather tick" name="weather" type="radio" value="Very sunny" id="weather_verysunny"/>
+					<label class="weather tick" for="weather_verysunny">&#9728;</label>
+					<input class="weather tick" name="weather" type="radio" value="nice" id="weather_swelteringheat"/>
+					<label class="weather tick" for="weather_swelteringheat">&#10041;</label>
+        		</div>
+        	</div>
+        	<div class="row" id="score-board">
+        		<div class="five columns home">
+						<input class="score more" type="button" value="+" data-target="score_home" data-direction="more"/>
+						<input class="score" name="score_home" id="score_home" type="text" value="0" />
+						<input class="score less" type="button" value="-" data-target="score_home" data-direction="less"/>
+        		</div>
+        		<div class="two columns center">Score</div>
+        		<div class="five columns away">
+					<input class="score more" type="button" value="+" data-target="score_away" data-direction="more"/>
+					<input class="score" name="score_away" id="score_away" type="text" value="0" />
+					<input class="score less" type="button" value="-" data-target="score_away" data-direction="less"/>
+        		</div>
+        	</div>
+        	<div class="row"  id="turn-board">
+        		<div class="five columns home">
+					<input class="turn tick" name="turn home" type="radio" value="0" id="turn_home_0" checked="checked"/>
+					<label class="turn tick" for="turn_home_0">0</label>
+					<input class="turn tick" name="turn home" type="radio" value="1" id="turn_home_1"/>
+					<label class="turn tick" for="turn_home_1">1</label>
+					<input class="turn tick" name="turn home" type="radio" value="2" id="turn_home_2"/>
+					<label class="turn tick" for="turn_home_2">2</label>
+					<input class="turn tick" name="turn home" type="radio" value="3" id="turn_home_3"/>
+					<label class="turn tick" for="turn_home_3">3</label>
+					<input class="turn tick" name="turn home" type="radio" value="4" id="turn_home_4"/>
+					<label class="turn tick" for="turn_home_4">4</label>
+					<input class="turn tick" name="turn home" type="radio" value="5" id="turn_home_5"/>
+					<label class="turn tick" for="turn_home_5">5</label>
+					<input class="turn tick" name="turn home" type="radio" value="6" id="turn_home_6"/>
+					<label class="turn tick" for="turn_home_6">6</label>
+					<input class="turn tick" name="turn home" type="radio" value="7" id="turn_home_7"/>
+					<label class="turn tick" for="turn_home_7">7</label>
+					<input class="turn tick" name="turn home" type="radio" value="8" id="turn_home_8"/>
+					<label class="turn tick" for="turn_home_8">8</label>
+        		</div>
+        		<div class="two columns center half">
+					<input class="half tick" name="half" type="radio" value="1" id="half_1"/>
+					<label class="half tick" for="half_1">1st half</label>
+					<input class="half tick" name="half" type="radio" value="2" id="half_2"/>
+					<label class="half tick" for="half_2">2nd half</label>
+					<input class="setup tick" name="setup" type="checkbox" value="1" id="setup"/>
+					<label class="setup tick" for="setup">Setting up</label>
+				</div>
+
+        		<div class="five columns away">
+        			<input class="turn tick" name="turn away" type="radio" value="0" id="turn_away_0"  checked="checked"/>
+					<label class="turn tick" for="turn_away_0">0</label>
+					<input class="turn tick" name="turn away" type="radio" value="1" id="turn_away_1"/>
+					<label class="turn tick" for="turn_away_1">1</label>
+					<input class="turn tick" name="turn away" type="radio" value="2" id="turn_away_2"/>
+					<label class="turn tick" for="turn_away_2">2</label>
+					<input class="turn tick" name="turn away" type="radio" value="3" id="turn_away_3"/>
+					<label class="turn tick" for="turn_away_3">3</label>
+					<input class="turn tick" name="turn away" type="radio" value="4" id="turn_away_4"/>
+					<label class="turn tick" for="turn_away_4">4</label>
+					<input class="turn tick" name="turn away" type="radio" value="5" id="turn_away_5"/>
+					<label class="turn tick" for="turn_away_5">5</label>
+					<input class="turn tick" name="turn away" type="radio" value="6" id="turn_away_6"/>
+					<label class="turn tick" for="turn_away_6">6</label>
+					<input class="turn tick" name="turn away" type="radio" value="7" id="turn_away_7"/>
+					<label class="turn tick" for="turn_away_7">7</label>
+					<input class="turn tick" name="turn away" type="radio" value="8" id="turn_away_8"/>
+					<label class="turn tick" for="turn_away_8">8</label>
+        		</div>
+        	</div>
+        	<div class="row"  id="reroll-board">
+        		<div class=" five columns home">
+					<input class="reroll tick" name="reroll_home" type="radio" value="0" id="reroll_home_0" checked="checked"/>
+					<label class="reroll tick" for="reroll_home_0">0</label>
+					<input class="reroll tick" name="reroll_home" type="radio" value="1" id="reroll_home_1"/>
+					<label class="reroll tick" for="reroll_home_1">1</label>
+					<input class="reroll tick" name="reroll_home" type="radio" value="2" id="reroll_home_2"/>
+					<label class="reroll tick" for="reroll_home_2">2</label>
+					<input class="reroll tick" name="reroll_home" type="radio" value="3" id="reroll_home_3"/>
+					<label class="reroll tick" for="reroll_home_3">3</label>
+					<input class="reroll tick" name="reroll_home" type="radio" value="4" id="reroll_home_4"/>
+					<label class="reroll tick" for="reroll_home_4">4</label>
+					<input class="reroll tick" name="reroll_home" type="radio" value="5" id="reroll_home_5"/>
+					<label class="reroll tick" for="reroll_home_5">5</label>
+					<input class="reroll tick" name="reroll_home" type="radio" value="6" id="reroll_home_6"/>
+					<label class="reroll tick" for="reroll_home_6">6</label>
+				</div>
+        		<div class="two columns center">Rerolls</div>
+        		<div class="five columns away">
+						<input class="reroll tick" name="reroll_away" type="radio" value="0" id="reroll_away_0" checked="checked"/>
+						<label class="reroll tick" for="reroll_away_0">0</label>
+						<input class="reroll tick" name="reroll_away" type="radio" value="1" id="reroll_away_1"/>
+						<label class="reroll tick" for="reroll_away_1">1</label>
+						<input class="reroll tick" name="reroll_away" type="radio" value="2" id="reroll_away_2"/>
+						<label class="reroll tick" for="reroll_away_2">2</label>
+						<input class="reroll tick" name="reroll_away" type="radio" value="3" id="reroll_away_3"/>
+						<label class="reroll tick" for="reroll_away_3">3</label>
+						<input class="reroll tick" name="reroll_away" type="radio" value="4" id="reroll_away_4"/>
+						<label class="reroll tick" for="reroll_away_4">4</label>
+						<input class="reroll tick" name="reroll_away" type="radio" value="5" id="reroll_away_5"/>
+						<label class="reroll tick" for="reroll_away_5">5</label>
+						<input class="reroll tick" name="reroll_away" type="radio" value="6" id="reroll_away_6"/>
+						<label class="reroll tick" for="reroll_away_6">6</label>
+				</div>
+        	</div>
+        	<div class="row"  id="casualties-board">
+				<div class="five columns home">
+					<input class="casualties tick" name="casualties_home" type="radio" value="0" id="casualties_home_0" checked="checked"/>
+					<label class="casualties tick" for="casualties_home_0">0</label>
+					<input class="casualties tick" name="casualties_home" type="radio" value="1" id="casualties_home_1"/>
+					<label class="casualties tick" for="casualties_home_1">1</label>
+					<input class="casualties tick" name="casualties_home" type="radio" value="2" id="casualties_home_2"/>
+					<label class="casualties tick" for="casualties_home_2">2</label>
+					<input class="casualties tick" name="casualties_home" type="radio" value="3" id="casualties_home_3"/>
+					<label class="casualties tick" for="casualties_home_3">3</label>
+					<input class="casualties tick" name="casualties_home" type="radio" value="4" id="casualties_home_4"/>
+					<label class="casualties tick" for="casualties_home_4">4</label>
+					<input class="casualties tick" name="casualties_home" type="radio" value="5" id="casualties_home_5"/>
+					<label class="casualties tick" for="casualties_home_5">5</label>
+					<input class="casualties tick" name="casualties_home" type="radio" value="6" id="casualties_home_6"/>
+					<label class="casualties tick" for="casualties_home_6">6</label>
+				</div>
+        		<div class="two columns center">Casualties</div>
+        		<div class="five columns away">
+					
+					<input class="casualties tick" name="casualties_away" type="radio" value="0" id="casualties_away_0" checked="checked"/>
+					<label class="casualties tick" for="casualties_away_0">0</label>
+					<input class="casualties tick" name="casualties_away" type="radio" value="1" id="casualties_away_1"/>
+					<label class="casualties tick" for="casualties_away_1">1</label>
+					<input class="casualties tick" name="casualties_away" type="radio" value="2" id="casualties_away_2"/>
+					<label class="casualties tick" for="casualties_away_2">2</label>
+					<input class="casualties tick" name="casualties_away" type="radio" value="3" id="casualties_away_3"/>
+					<label class="casualties tick" for="casualties_away_3">3</label>
+					<input class="casualties tick" name="casualties_away" type="radio" value="4" id="casualties_away_4"/>
+					<label class="casualties tick" for="casualties_away_4">4</label>
+					<input class="casualties tick" name="casualties_away" type="radio" value="5" id="casualties_away_5"/>
+					<label class="casualties tick" for="casualties_away_5">5</label>
+					<input class="casualties tick" name="casualties_away" type="radio" value="6" id="casualties_away_6"/>
+					<label class="casualties tick" for="casualties_away_6">6</label>
+				</div>
+				
+        	</div>
+        </form>
         <script type="text/javascript" src="cordova.js"></script>
+        <!--script type="text/javascript" src='js/jquery-1.6.2.min.js'></script-->
+        
+        <!--script src="http://code.jquery.com/jquery-1.7.1.min.js"></script-->
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!--script src="js/jquery.mobile-1.4.5.js"></script-->
+        
+        <script type="text/javascript" src='js/jquery.loadJSON.js'></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+        
     </body>
 </html>

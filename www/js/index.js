@@ -1,49 +1,71 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+var sleepTimer = 0;
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+jQuery(function() {
+		/*
+		Initialisation
+		*/
+		//initialize score tickers
+		jQuery('input.score').click(function(){
+				//jQuery('#score_home').val(  jQuery('#score_home').val()+1 );
+				var $target = jQuery('#' + jQuery(this).data('target') );
+				var s =  $target.val();
+				s=( isNaN(parseInt(s) ) )?0:parseInt(s); //get int val
+				
+				if( jQuery(this).data('direction') == 'less' ) //increment or decrement
+				    {s--;}
+				else
+				    {s++;}
+				if(s==10)alert('Really /(O_o)\\ ?');
+				if(s==14)alert('At this point your opponent should rage quit...');
+				if(s==16)alert('Ok, you are testing the system huh ?');
+				s=(s>=0)?s:0;//minimum 0
+				$target.val(s); // reaffect to field
+		});
+		
+		//reload form datas
+		resetBoard = true;
+		if( resetBoard )
+		{
+		    jQuery('#board_id').val( retrieveCookie('boardbowl-boardid') );
+		}
+		else
+		{
+			recoverInputs(document.forms.main_board,retrieveCookie('boardbowl-form'),true);
+		}
+		
+		//initialize datas
+		jQuery('body').click(function(){
+			sleepTimer = 0;
+		    pushDatas();
+		    
+		});
+		//push and launch auto push
+		autoPushDatas();
+		
+});
 
-        console.log('Received Event: ' + id);
-    }
-};
+
+function pushDatas()
+{
+    jQuery.ajax({
+      type: "POST",
+      url: "save.php",
+      data: jQuery( "#main_board" ).serialize(),
+      success: function(){ console.log('data sent'); }
+    });
+    
+    //save form data in cookie
+    setCookie('boardbowl-form',getFormString(document.forms.main_board,true));
+    setCookie('boardbowl-boardid',jQuery('#board_id').val() );
+
+}
+
+function autoPushDatas()
+{
+	pushDatas();
+	sleepTimer++;
+	if(sleepTimer < 360 )//do not relaunch if no activity snce more than 1 hour
+	{
+		setTimeout(function(){autoPushDatas()},10000);
+	}
+}

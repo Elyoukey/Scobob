@@ -1,0 +1,1 @@
+/* Placeholder for cordova library. This library is loaded by phonegap but useless for desktop version */
